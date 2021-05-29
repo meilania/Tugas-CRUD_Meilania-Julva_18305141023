@@ -18,7 +18,7 @@ public class ViewItemMhs extends RelativeLayout {
     TextView txtHP;
     TextView txtNama;
     TextView txtAlamat;
-    Button btnEdit;
+    Button btnEdit,btnDelete;
     MhsEntity mhsEntity;
 
     public ViewItemMhs(Context context) {
@@ -59,6 +59,7 @@ public class ViewItemMhs extends RelativeLayout {
         txtNama = findViewById(R.id.txtNama);
         txtAlamat = findViewById(R.id.txtAlamat);
         btnEdit = findViewById(R.id.btnEdit);
+btnDelete = findViewById(R.id.btnDelete);
 
         btnEdit.setOnClickListener(new OnClickListener() {
             @Override
@@ -68,6 +69,15 @@ public class ViewItemMhs extends RelativeLayout {
                 ((Activity) context).startActivityForResult(intent, MainActivity.CRUD_REQ);
             }
         });
+        btnDelete.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DeleteActivity.class);
+                intent.putExtra("mhsEntity", mhsEntity.toParcel());
+                ((Activity) context).startActivityForResult(intent, MainActivity.CRUD_REQ);
+            }
+        });
+
     }
 
 }
