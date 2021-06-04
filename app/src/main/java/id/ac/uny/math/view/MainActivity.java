@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void initViewData() {
-        if (mathDatabase.getMhsDao().getMhs() == null) return;
 
         if (searchinput==null){
             mhsEntityList=mathDatabase.getMhsDao().getMhs();
